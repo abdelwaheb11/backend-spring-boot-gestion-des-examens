@@ -5,11 +5,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.abdelwaheb.examens.entities.Matiere;
 import com.abdelwaheb.examens.entities.Examen;
+import com.abdelwaheb.examens.entities.Image;
 import com.abdelwaheb.examens.repos.MatiereRepository;
 import com.abdelwaheb.examens.repos.ExamenRepository;
+import com.abdelwaheb.examens.repos.ImageRepository;
 
 @Service
 public class ExamenServiceImpl implements ExamenService{
@@ -20,6 +23,9 @@ public class ExamenServiceImpl implements ExamenService{
 	
 	@Autowired
 	MatiereRepository matiereRepository;
+
+	@Autowired
+	ImageRepository imageRepository;
 	
 	@Override
 	public Examen saveExamen(Examen e) {
@@ -27,7 +33,11 @@ public class ExamenServiceImpl implements ExamenService{
 	}
 
 	@Override
-	public Examen updateExamen(Examen e) {
+	public Examen updateExamen(Examen e , List<Image> images) {
+		for(Image image : images){
+			imageRepository.save(image);
+		}
+		
 		return examenRepository.save(e);
 	}
 

@@ -111,7 +111,7 @@ public class ExamenController {
 	  
 	
 
-	@RequestMapping("/updateExamen")
+	/*@RequestMapping("/updateExamen")
 	public String updateExamen(@ModelAttribute("Examen") Examen Examen, @RequestParam("date") String date,
 			ModelMap modelMap) throws ParseException {
 		// conversion de la date
@@ -123,5 +123,5 @@ public class ExamenController {
 		List<Examen> ex = examenservice.getAllExamens();
 		modelMap.addAttribute("examens", ex);
 		return "listeExamens";
-	}
+	}*/
 }

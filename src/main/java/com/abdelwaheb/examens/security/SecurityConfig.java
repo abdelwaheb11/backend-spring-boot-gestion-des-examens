@@ -55,6 +55,17 @@ public class SecurityConfig {
             .requestMatchers( HttpMethod.POST ,"/api/matieres/save/**").hasAnyAuthority("ADMIN")
             .requestMatchers( HttpMethod.PUT ,"/api/matieres/update/**").hasAnyAuthority("ADMIN")
             .requestMatchers( HttpMethod.DELETE ,"/api/matieres/delete/**").hasAnyAuthority("ADMIN")
+            //images request
+            .requestMatchers( HttpMethod.GET ,"/api/image/get/info/**").hasAnyAuthority("ADMIN","USER")
+            .requestMatchers( HttpMethod.GET ,"/api/image/load/**").hasAnyAuthority("ADMIN","USER")
+            .requestMatchers( HttpMethod.GET ,"/api/image/getImagesExamen/**").hasAnyAuthority("ADMIN","USER")
+            .requestMatchers( HttpMethod.POST ,"/api/image/uplaodImageExamen/**").hasAnyAuthority("ADMIN")
+            .requestMatchers( HttpMethod.POST ,"/api/image/uplaod/**").hasAnyAuthority("ADMIN")
+            .requestMatchers( HttpMethod.PUT ,"/api/image/update/**").hasAnyAuthority("ADMIN")
+            .requestMatchers( HttpMethod.DELETE ,"/api/image/delete/**").hasAnyAuthority("ADMIN")
+            .requestMatchers( HttpMethod.DELETE ,"/api/image/deleteImagesExamen/**").hasAnyAuthority("ADMIN")
+             
+
 
             .anyRequest().authenticated())
             .addFilterBefore(new JWTAuthorizationFilter(),UsernamePasswordAuthenticationFilter.class);

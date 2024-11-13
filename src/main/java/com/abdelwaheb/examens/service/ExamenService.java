@@ -2,14 +2,14 @@ package com.abdelwaheb.examens.service;
 import java.util.List;
 
 import org.springframework.data.domain.Page;
-
 import com.abdelwaheb.examens.entities.Matiere;
 import com.abdelwaheb.examens.entities.Examen;
+import com.abdelwaheb.examens.entities.Image;
 
 public interface ExamenService {
-	Examen saveExamen(Examen p);
-	Examen updateExamen(Examen p);
-	void deleteExamen(Examen p);
+	Examen saveExamen(Examen e);
+	Examen updateExamen(Examen e  , List<Image> images);
+	void deleteExamen(Examen e);
 	void deleteExamenById(Long id);
 	Examen getExamen(Long id);
 	List<Examen> getAllExamens();
